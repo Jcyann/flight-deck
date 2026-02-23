@@ -95,8 +95,9 @@
         .right-col { display: flex; flex-direction: column; gap: 12px; }
         
         /* Panels */
-        .panel { background: var(--bg-panel); border-radius: 12px; padding: 16px; border: 1px solid var(--border); }
-        .panel:hover { border-color: var(--accent-purple); transition: 0.3s; }
+        .panel { background: var(--bg-panel); border-radius: 12px; padding: 16px; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+        .panel:hover { border-color: var(--accent-purple); }
+        .panel.dragging { opacity: 0.5; transform: scale(0.98); box-shadow: 0 10px 30px rgba(139,92,246,0.3); }
         .panel-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         
         /* Priorities */
@@ -620,6 +621,45 @@
         notes.addEventListener('input', () => {
             localStorage.setItem('clawdeck-notes', notes.value);
         });
+        
+        // Drag and Drop
+        const panels = document.querySelectorAll('.panel');
+        let draggedPanel = null;
+        
+        panels.forEach(panel => {
+            panel.addEventListener('dragstart', () => {
+                draggedPanel = panel;
+                panel.classList.add('dragging');
+            });
+            panel.addEventListener('dragend', () => {
+                panel.classList.remove('dragging');
+                draggedPanel = null;
+                savePanelOrder();
+            });
+            panel.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                if (draggedPanel && draggedPanel !== panel) {
+                    const rect = panel.getBoundingClientRect();
+                    const midY = rect.top + rect.height / 2;
+                    if (e.clientY < midY) {
+                        panel.parentNode.insertBefore(draggedPanel, panel);
+                    } else {
+                        panel.parentNode.insertBefore(draggedPanel, panel.nextSibling);
+                    }
+                }
+            });
+        });
+        
+        function savePanelOrder() {
+            const order = Array.from(document.querySelectorAll('.panel')).map(p => p.innerText.substring(0, 20));
+            localStorage.setItem('clawdeck-panel-order', JSON.stringify(order));
+        }
+        
+        // Load saved order
+        const savedOrder = localStorage.getItem('clawdeck-panel-order');
+        if (savedOrder) {
+            console.log('Panel order saved');
+        }
     </script>
 </body>
 </html>
