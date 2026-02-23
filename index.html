@@ -99,6 +99,13 @@
         .panel:hover { border-color: var(--accent-purple); }
         .panel.dragging { opacity: 0.5; transform: scale(0.98); box-shadow: 0 10px 30px rgba(139,92,246,0.3); }
         .panel-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .panel-handle { cursor: grab; opacity: 0.5; font-size: 0.9rem; margin-right: 5px; }
+        .panel-handle:hover { opacity: 1; }
+        
+        /* Panel Resize */
+        .panel { position: relative; min-height: 100px; }
+        .resize-handle { position: absolute; bottom: 5px; right: 5px; width: 15px; height: 15px; cursor: se-resize; opacity: 0.3; }
+        .resize-handle:hover { opacity: 1; }
         
         /* Priorities */
         .priority-list { list-style: none; }
@@ -276,7 +283,7 @@
             <div class="left-col">
                 <!-- Priorities -->
                 <div class="panel">
-                    <div class="panel-title">🎯 TODAY'S PRIORITIES</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>🎯 TODAY'S PRIORITIES</div>
                     <ul class="priority-list">
                         <li class="priority-item">
                             <span class="priority-num p1">1</span>
@@ -327,7 +334,7 @@
                 
                 <!-- Money - Big Display -->
                 <div class="panel">
-                    <div class="panel-title">💰 MONEY STATUS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>💰 MONEY STATUS</div>
                     <div class="money-grid">
                         <div class="money-card income">
                             <div class="money-label">Monthly Income</div>
@@ -350,7 +357,7 @@
                 
                 <!-- Teams -->
                 <div class="panel">
-                    <div class="panel-title">🏢 TEAMS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>🏢 TEAMS</div>
                     <div class="teams-grid">
                         <div class="team-card">
                             <span class="team-emoji">💰</span><span class="team-name">Finance</span><div class="team-status active"></div>
@@ -417,7 +424,7 @@
                 
                 <!-- To-Do & Accomplishments -->
                 <div class="panel">
-                    <div class="panel-title">📋 TO-DO & ACCOMPLISHMENTS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>📋 TO-DO & ACCOMPLISHMENTS</div>
                     <div class="todo-grid">
                         <div class="todo-column">
                             <h4>⏳ TO-DO</h4>
@@ -449,7 +456,7 @@
                 
                 <!-- Quick Actions -->
                 <div class="panel">
-                    <div class="panel-title">⚡ QUICK ACTIONS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>⚡ QUICK ACTIONS</div>
                     <div class="actions-grid">
                         <a href="https://jcyann.github.io/tunevault/" target="_blank" class="action-btn btn-purple">🎻 TuneVault</a>
                         <a href="https://jcyann.github.io/flight-deck/" target="_blank" class="action-btn btn-blue">🦞 ClawDeck</a>
@@ -467,7 +474,7 @@
             <div class="right-col">
                 <!-- Quick Links -->
                 <div class="panel">
-                    <div class="panel-title">🔗 QUICK LINKS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>🔗 QUICK LINKS</div>
                     <div class="links-grid">
                         <a href="https://jcyann.github.io/tunevault/" target="_blank" class="link-btn">🎻 TuneVault</a>
                         <a href="https://jcyann.github.io/flight-deck/" target="_blank" class="link-btn">🦞 ClawDeck</a>
@@ -489,7 +496,7 @@
                 
                 <!-- System Status -->
                 <div class="panel">
-                    <div class="panel-title">⚙️ SYSTEM STATUS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>⚙️ SYSTEM STATUS</div>
                     <div class="system-grid">
                         <div class="system-item">
                             <span class="system-icon">🌐</span>
@@ -516,7 +523,7 @@
                 
                 <!-- Income Breakdown -->
                 <div class="panel">
-                    <div class="panel-title">💵 INCOME BREAKDOWN</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>💵 INCOME BREAKDOWN</div>
                     <div class="income-list">
                         <div class="income-item"><span>Teaching</span><span style="color:#10b981">$6,667/mo</span></div>
                         <div class="income-item"><span>Tintype</span><span style="color:#10b981">~$1,000/mo</span></div>
@@ -527,7 +534,7 @@
                 
                 <!-- Stock Tickers -->
                 <div class="panel">
-                    <div class="panel-title">📈 STOCKS</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>📈 STOCKS</div>
                     <div class="stock-grid">
                         <div class="stock-item">
                             <div class="stock-symbol">BTC</div>
@@ -554,7 +561,7 @@
                 
                 <!-- Weather -->
                 <div class="panel">
-                    <div class="panel-title">🌤️ WEATHER</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>🌤️ WEATHER</div>
                     <div class="weather-grid">
                         <div class="weather-item">
                             <div class="weather-icon">🏔️</div>
@@ -576,7 +583,7 @@
                 
                 <!-- Crypto -->
                 <div class="panel">
-                    <div class="panel-title">₿ CRYPTO</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>₿ CRYPTO</div>
                     <div class="crypto-grid">
                         <div class="crypto-item">
                             <div class="crypto-symbol">BTC</div>
@@ -603,7 +610,7 @@
                 
                 <!-- Notes -->
                 <div class="panel">
-                    <div class="panel-title">📝 NOTES</div>
+                    <div class="panel-title"><span class="panel-handle">⋮⋮</span>📝 NOTES</div>
                     <textarea class="notes-area" placeholder="Type your notes here..."></textarea>
                 </div>
             </div>
@@ -650,20 +657,26 @@
             localStorage.setItem('clawdeck-notes', notes.value);
         });
         
-        // Drag and Drop
+        // Drag and Drop with handles
         const panels = document.querySelectorAll('.panel');
         let draggedPanel = null;
         
         panels.forEach(panel => {
-            panel.addEventListener('dragstart', () => {
+            const handle = panel.querySelector('.panel-handle');
+            const dragTarget = handle || panel;
+            
+            dragTarget.addEventListener('dragstart', (e) => {
                 draggedPanel = panel;
                 panel.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
             });
-            panel.addEventListener('dragend', () => {
+            
+            dragTarget.addEventListener('dragend', () => {
                 panel.classList.remove('dragging');
                 draggedPanel = null;
                 savePanelOrder();
             });
+            
             panel.addEventListener('dragover', (e) => {
                 e.preventDefault();
                 if (draggedPanel && draggedPanel !== panel) {
@@ -676,6 +689,30 @@
                     }
                 }
             });
+            
+            // Resize
+            const resizer = panel.querySelector('.resize-handle');
+            if (resizer) {
+                let isResizing = false;
+                let startY, startHeight;
+                
+                resizer.addEventListener('mousedown', (e) => {
+                    isResizing = true;
+                    startY = e.clientY;
+                    startHeight = panel.offsetHeight;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isResizing) return;
+                    const newHeight = startHeight + (e.clientY - startY);
+                    panel.style.minHeight = newHeight + 'px';
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    isResizing = false;
+                });
+            }
         });
         
         function savePanelOrder() {
@@ -722,6 +759,16 @@
         
         // Load config on startup
         applyConfig();
+        
+        // Add resize handles to all panels
+        panels.forEach(panel => {
+            if (!panel.querySelector('.resize-handle')) {
+                const resizer = document.createElement('div');
+                resizer.className = 'resize-handle';
+                resizer.innerHTML = '⤡';
+                panel.appendChild(resizer);
+            }
+        });
     </script>
 </body>
 </html>
