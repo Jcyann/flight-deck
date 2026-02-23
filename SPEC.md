@@ -1,5 +1,6 @@
-# Jason's Flight Deck - Project Specification
+# ClawDeck - Project Specification
 
+## Brand: ClawDeck - AI Command Center
 ## Version: 1.0 (Draft)
 
 ### Core Features - MUST HAVE
