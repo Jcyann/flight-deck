@@ -101,8 +101,17 @@
         
         /* Priorities */
         .priority-list { list-style: none; }
-        .priority-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .priority-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; cursor: pointer; position: relative; }
+        .priority-item:hover { background: rgba(139,92,246,0.1); border-radius: 8px; padding-left: 5px; padding-right: 5px; }
         .priority-item:last-child { border-bottom: none; }
+        
+        /* Priority Dropdown */
+        .priority-dropdown { display: none; position: absolute; top: 100%; left: 0; background: var(--bg-panel); border: 1px solid var(--accent-purple); border-radius: 10px; padding: 12px; min-width: 250px; z-index: 100; margin-top: 5px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .priority-item:hover .priority-dropdown { display: block; }
+        .priority-dropdown-title { font-size: 0.7rem; color: var(--accent-purple); font-weight: bold; margin-bottom: 8px; }
+        .priority-dropdown-item { font-size: 0.75rem; padding: 5px 8px; color: var(--text-secondary); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        .priority-dropdown-item:last-child { border: none; }
+        .priority-dropdown-item span:first-child::before { content: "→ "; color: var(--accent-cyan); }
         .priority-num { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; }
         .p1 { background: linear-gradient(135deg, #ef4444, #dc2626); color: white; }
         .p2 { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
@@ -228,10 +237,50 @@
                 <div class="panel">
                     <div class="panel-title">🎯 TODAY'S PRIORITIES</div>
                     <ul class="priority-list">
-                        <li class="priority-item"><span class="priority-num p1">1</span> Build Canada Fund ($10K goal)</li>
-                        <li class="priority-item"><span class="priority-num p2">2</span> TuneVault - Tip jar + mobile polish</li>
-                        <li class="priority-item"><span class="priority-num p3">3</span> DaVinci MTB video edit</li>
-                        <li class="priority-item"><span class="priority-num p4">4</span> Design automation research</li>
+                        <li class="priority-item">
+                            <span class="priority-num p1">1</span>
+                            <span>Build Canada Fund ($10K goal)</span>
+                            <div class="priority-dropdown">
+                                <div class="priority-dropdown-title">🎯 PRIORITY 1: CANADA FUND</div>
+                                <div class="priority-dropdown-item"><span>Current debt</span><span>$12,000</span></div>
+                                <div class="priority-dropdown-item"><span>Target fund</span><span>$10,000</span></div>
+                                <div class="priority-dropdown-item"><span>Monthly target</span><span>$500/mo</span></div>
+                                <div class="priority-dropdown-item"><span>Timeline</span><span>20 months</span></div>
+                            </div>
+                        </li>
+                        <li class="priority-item">
+                            <span class="priority-num p2">2</span>
+                            <span>TuneVault - Tip jar + mobile</span>
+                            <div class="priority-dropdown">
+                                <div class="priority-dropdown-title">🎯 PRIORITY 2: TUNEVAULT</div>
+                                <div class="priority-dropdown-item"><span>Add tip jar</span><span>Ko-fi</span></div>
+                                <div class="priority-dropdown-item"><span>Mobile polish</span><span>PWA</span></div>
+                                <div class="priority-dropdown-item"><span>Add tunes</span><span>+100</span></div>
+                                <div class="priority-dropdown-item"><span>Deploy</span><span>Done</span></div>
+                            </div>
+                        </li>
+                        <li class="priority-item">
+                            <span class="priority-num p3">3</span>
+                            <span>DaVinci MTB video edit</span>
+                            <div class="priority-dropdown">
+                                <div class="priority-dropdown-title">🎯 PRIORITY 3: VIDEO</div>
+                                <div class="priority-dropdown-item"><span>Footage found</span><span>20+ clips</span></div>
+                                <div class="priority-dropdown-item"><span>Preview ready</span><span>Done</span></div>
+                                <div class="priority-dropdown-item"><span>Full edit</span><span>In progress</span></div>
+                                <div class="priority-dropdown-item"><span>Upload</span><span>Pending</span></div>
+                            </div>
+                        </li>
+                        <li class="priority-item">
+                            <span class="priority-num p4">4</span>
+                            <span>Design automation research</span>
+                            <div class="priority-dropdown">
+                                <div class="priority-dropdown-title">🎯 PRIORITY 4: DESIGN</div>
+                                <div class="priority-dropdown-item"><span>Catalog art</span><span>Pending</span></div>
+                                <div class="priority-dropdown-item"><span>AI tools</span><span>Research</span></div>
+                                <div class="priority-dropdown-item"><span>Redbubble</span><span>Active</span></div>
+                                <div class="priority-dropdown-item"><span>Etsy</span><span>Setup</span></div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 
