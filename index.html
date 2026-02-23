@@ -125,8 +125,16 @@
         .teams-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
         @media (max-width: 800px) { .teams-grid { grid-template-columns: repeat(3, 1fr); } }
         
-        .team-card { background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.1)); padding: 14px 10px; border-radius: 12px; text-align: center; border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .team-card { background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.1)); padding: 14px 10px; border-radius: 12px; text-align: center; border: 1px solid var(--border); transition: 0.3s; cursor: pointer; position: relative; }
         .team-card:hover { transform: scale(1.05); border-color: var(--accent-purple); }
+        
+        /* Team Dropdown */
+        .team-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--bg-panel); border: 1px solid var(--accent-purple); border-radius: 10px; padding: 10px; min-width: 180px; z-index: 100; margin-top: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .team-card:hover .team-dropdown { display: block; }
+        .team-dropdown-title { font-size: 0.7rem; color: var(--accent-purple); font-weight: bold; margin-bottom: 8px; }
+        .team-dropdown-item { font-size: 0.7rem; padding: 4px 8px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+        .team-dropdown-item:last-child { border: none; }
+        .team-dropdown-item::before { content: "→ "; color: var(--accent-cyan); }
         .team-emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
         .team-name { font-size: 0.7rem; color: var(--text-secondary); }
         .team-status { width: 8px; height: 8px; border-radius: 50%; margin: 6px auto 0; }
@@ -254,11 +262,56 @@
                 <div class="panel">
                     <div class="panel-title">🏢 TEAMS</div>
                     <div class="teams-grid">
-                        <div class="team-card"><span class="team-emoji">💰</span><span class="team-name">Finance</span><div class="team-status active"></div></div>
-                        <div class="team-card"><span class="team-emoji">🇨🇦</span><span class="team-name">Canada</span><div class="team-status active"></div></div>
-                        <div class="team-card"><span class="team-emoji">🎻</span><span class="team-name">Apps</span><div class="team-status active"></div></div>
-                        <div class="team-card"><span class="team-emoji">🎨</span><span class="team-name">Design</span><div class="team-status active"></div></div>
-                        <div class="team-card"><span class="team-emoji">📹</span><span class="team-name">Video</span><div class="team-status active"></div></div>
+                        <div class="team-card">
+                            <span class="team-emoji">💰</span><span class="team-name">Finance</span><div class="team-status active"></div>
+                            <div class="team-dropdown">
+                                <div class="team-dropdown-title">💰 FINANCE</div>
+                                <div class="team-dropdown-item">Debt payoff plan</div>
+                                <div class="team-dropdown-item">Budget tracking</div>
+                                <div class="team-dropdown-item">Crypto lessons</div>
+                                <div class="team-dropdown-item">Investment research</div>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <span class="team-emoji">🇨🇦</span><span class="team-name">Canada</span><div class="team-status active"></div>
+                            <div class="team-dropdown">
+                                <div class="team-dropdown-title">🇨🇦 CANADA PLAN</div>
+                                <div class="team-dropdown-item">Build $10K fund</div>
+                                <div class="team-dropdown-item">RBC transfers</div>
+                                <div class="team-dropdown-item">Housing research</div>
+                                <div class="team-dropdown-item">Timeline planning</div>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <span class="team-emoji">🎻</span><span class="team-name">Apps</span><div class="team-status active"></div>
+                            <div class="team-dropdown">
+                                <div class="team-dropdown-title">🎻 APPS</div>
+                                <div class="team-dropdown-item">TuneVault</div>
+                                <div class="team-dropdown-item">ClawDeck</div>
+                                <div class="team-dropdown-item">Daily Zen</div>
+                                <div class="team-dropdown-item">GitHub Pages</div>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <span class="team-emoji">🎨</span><span class="team-name">Design</span><div class="team-status active"></div>
+                            <div class="team-dropdown">
+                                <div class="team-dropdown-title">🎨 DESIGN POD</div>
+                                <div class="team-dropdown-item">Art catalog</div>
+                                <div class="team-dropdown-item">AI tools research</div>
+                                <div class="team-dropdown-item">Redbubble</div>
+                                <div class="team-dropdown-item">Etsy setup</div>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <span class="team-emoji">📹</span><span class="team-name">Video</span><div class="team-status active"></div>
+                            <div class="team-dropdown">
+                                <div class="team-dropdown-title">📹 VIDEO</div>
+                                <div class="team-dropdown-item">MTB Best Hits</div>
+                                <div class="team-dropdown-item">DaVinci editing</div>
+                                <div class="team-dropdown-item">YouTube uploads</div>
+                                <div class="team-dropdown-item">Content strategy</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-tags">
                         <span class="project-tag">TuneVault</span>
