@@ -189,6 +189,16 @@
         .config-save { width: 100%; padding: 10px; background: var(--accent-purple); border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 600; }
         .config-label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 5px; display: block; }
         
+        /* Progress Bars */
+        .progress-container { margin-top: 8px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); }
+        .progress-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+        .progress-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+        
+        /* Animations */
+        @keyframes glow { 0%, 100% { box-shadow: 0 0 10px rgba(139,92,246,0.3); } 50% { box-shadow: 0 0 20px rgba(139,92,purple,0.6); } }
+        .glow { animation: glow 2s infinite; }
+        
         /* System */
         .system-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
         .system-item { background: rgba(0,0,0,0.4); padding: 12px 8px; border-radius: 10px; text-align: center; border: 1px solid var(--border); }
@@ -339,18 +349,22 @@
                         <div class="money-card income">
                             <div class="money-label">Monthly Income</div>
                             <div class="money-value">$8,067</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 100%; background: var(--accent-green);"></div></div>
                         </div>
                         <div class="money-card debt">
                             <div class="money-label">Debt</div>
                             <div class="money-value">$12,000</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%; background: var(--accent-red);"></div></div>
                         </div>
                         <div class="money-card goal">
                             <div class="money-label">Canada Fund</div>
                             <div class="money-value">$0 / $10K</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%; background: var(--accent-blue);"></div></div>
                         </div>
                         <div class="money-card">
                             <div class="money-label">Expenses</div>
                             <div class="money-value">$800/mo</div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 10%; background: var(--accent-yellow);"></div></div>
                         </div>
                     </div>
                 </div>
